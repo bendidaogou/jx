@@ -38,8 +38,11 @@
 
         $(document).ready(function () {
             let url = getUrlParam('url');
-            console.log($('#iframe1'));
-            $('#iframe1').attr('src', url);
+            if(url){
+                $('#iframe1').attr('src', url);
+            } else {
+                alert('非礼勿视');
+            }
         });
         
     </script>
