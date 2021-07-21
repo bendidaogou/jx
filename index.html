@@ -25,13 +25,34 @@
             color: #aaa;
         }
     </style>
-    
+
+
+    <script src="http://libs.baidu.com/jquery/2.0.3/jquery.min.js"></script>
+    <script type="text/javascript">
+
+        function getUrlParam(name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+            var r = window.location.search.substr(1).match(reg);
+            if (r != null) return decodeURI(r[2]); return null;
+        }
+
+        $(document).ready(function () {
+            let url = getUrlParam('url');
+            console.log($('#iframe1'));
+            $('#iframe1').attr('src', url);
+        });
+        
+    </script>
+
+
 </head>
 
 <body>
-    
-    <iframe width="100%" height="100%" allowfullscreen="true" allowtransparency="true" frameborder="0" scrolling="no"
-        src="https://jx.sigujx.com/?url=https://v.qq.com/x/cover/m441e3rjq9kwpsc/f0035kaoj14.html"></iframe>
+
+    <div>
+        <iframe id="iframe1" width="100%" height="100%" allowfullscreen="true" allowtransparency="true" frameborder="0"
+            scrolling="no" src="javascript:;"></iframe>
+    </div>
 
 </body>
 
