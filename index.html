@@ -38,7 +38,8 @@
 
         $(document).ready(function () {
             let url = getUrlParam('url');
-            if(url){
+            if (url) {
+                url = 'https://api.sigujx.com/?url=' + url;
                 $('#iframe1').attr('src', url);
             } else {
                 alert('非礼勿视');
