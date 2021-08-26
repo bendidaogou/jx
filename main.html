@@ -1,1 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+
+  <title>暴风黑扫</title>
+
+  <link href="//cdn.staticfile.org/twitter-bootstrap/3.0.1/css/bootstrap.min.css" rel="stylesheet">
+  <script type="text/javascript" src="//cdn.staticfile.org/jquery/2.0.0/jquery.min.js"></script>
+  <script type="text/javascript" src="//cdn.staticfile.org/twitter-bootstrap/3.0.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/hls.js/dist/hls.min.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/dplayer/dist/DPlayer.min.js"></script>
+
+  <style type="text/css">
+    .btn {
+      margin: 5px;
+    }
+  </style>
+
+  <script type="text/javascript">
+    let v_list = [
+    "https://cdn.xbqgx.com/m3u8/414157.m3u8",
+	"https://cdn.xbqgx.com/m3u8/414167.m3u8",
+	"https://cdn.xbqgx.com/m3u8/414174.m3u8",
+	"https://cdn.xbqgx.com/m3u8/414178.m3u8",
+	"https://cdn.xbqgx.com/m3u8/414181.m3u8",
+	"https://sf1-ttcdn-tos.pstatp.com/obj/tos-cn-v-0004/0d69e3b35a8a417d83bbc96b5bd2a82f?.mp4",
+	"https://sf1-ttcdn-tos.pstatp.com/obj/tos-cn-v-0004/dd272652a1e845a98ccd1abfe1829dfe?.mp4",
+	"https://sf1-ttcdn-tos.pstatp.com/obj/tos-cn-v-0004/317ccddef99445dabdc2795b15c28ede?.mp4",
+	"https://sf1-ttcdn-tos.pstatp.com/obj/tos-cn-v-0004/803d67aae9a9471fb6ba833b6cf00bd8?.mp4",
+	"https://sf1-ttcdn-tos.pstatp.com/obj/tos-cn-v-0004/28e099717d5e42c5a40eae85b3d302e1?.mp4",
+	"https://sf1-ttcdn-tos.pstatp.com/obj/tos-cn-v-0004/b413a978b9cf48e9bbb79403e9b898e6?.mp4",
+	"https://sf1-ttcdn-tos.pstatp.com/obj/tos-cn-v-0004/849b64c0ec0641b5b4f118995844396c?.mp4",
+	"https://sf1-ttcdn-tos.pstatp.com/obj/tos-cn-v-0004/89ff33fb8f9f4d8ca631bdae2ca92fc9?.mp4",
+	"https://sf1-ttcdn-tos.pstatp.com/obj/tos-cn-v-0004/10d239a93d8e4958b5a09dba145dcecd?.mp4",
+	"https://1255653016.vod2.myqcloud.com/ccb69ca1vodgzp1255653016/42dc2df53701925922929467757/1U8caYQJqksA.mp4",
+	"https://sf1-ttcdn-tos.pstatp.com/obj/tos-cn-v-0004/647aca262cb64e179f1e6150eaa20dfb?.mp4",
+	"https://1255653016.vod2.myqcloud.com/ccb69ca1vodgzp1255653016/4e29488e3701925922929913637/iBZgYCpyEdAA.mp4",
+	"https://sf1-ttcdn-tos.pstatp.com/obj/tos-cn-v-0004/48d33893a00744b4a99ba5f3379be81b?.mp4",
+	"https://sf1-ttcdn-tos.pstatp.com/obj/tos-cn-v-0004/69a2e8d7cb324fb68183b66599a8de72?.mp4",
+	"https://sf1-ttcdn-tos.pstatp.com/obj/tos-cn-v-0004/c9c8932f43084c999b51e72a52c93f11?.mp4",
+	"https://sf3-dycdn-tos.pstatp.com/obj/tos-cn-v-0004/29b33a1c4a7b44fc81a66a3062e3fa11?.mp4",
+	"https://sf3-dycdn-tos.pstatp.com/obj/tos-cn-v-0004/f308aaa68a9c4271919b5298c5ef4666?.mp4",
+	"https://sf3-dycdn-tos.pstatp.com/obj/tos-cn-v-0004/2a140111a28e421285f190df5f12a3fd?.mp4"
+
+    ];
+
+
+
+    let dp = null;
+
+    function getUrlParam(name) {
+      var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+      var r = window.location.search.substr(1).match(reg);
+      if (r != null) return decodeURI(r[2]); return null;
+    }
+
+    $(function () {
+      let i1 = getUrlParam('i') || 0;
+      dp = new DPlayer({
+        container: document.getElementById('dplayer'),
+        lang: 'zh-cn',
+        video: {
+          url: v_list[i1],
+        },
+      });
+
+      let span_html = '';
+      v_list.forEach((v, i) => {
+        span_html += '<button type="button" class="btn btn-default"><a href="?i=' + i + '">第' + (i + 1) + '集</a></button>'
+      })
+      $('#v_list').append(span_html);
+
+    });
+
+  </script>
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="row clearfix">
+      <div class="col-md-12 column">
+        <div id="dplayer"></div>
+      </div>
+
+      <div class="col-md-12 column" id="v_list">
+
+      </div>
+    </div>
+  </div>
+
+
+</body>
+
+</html>
