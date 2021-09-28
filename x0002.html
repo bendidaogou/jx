@@ -14,15 +14,9 @@
   <title>index</title>
 
   <style type="text/css">
-    body,
-    html,
-    iframe {
+    body{
       background-color: #F5F5DC;
-      padding: 0;
-      margin: 0;
-      width: 100%;
       height: 100%;
-      color: #aaa;
     }
   </style>
 
@@ -37,6 +31,10 @@
     }
 
     $(document).ready(function () {
+      let width = document.body.clientWidth;
+      let height = width / 2.4;
+      $('#iframe1').css('height', height);
+
       let url = getUrlParam('url');
       if (url) {
         $('#iframe1').attr('src', url);
@@ -45,19 +43,23 @@
       }
     });
 
+    function fn2(height2) {
+      let height1 = $('#iframe1').css('height');
+      $('#iframe1').css('height', parseInt(height1) + height2);
+    }
   </script>
 </head>
 
 <body>
-  <div>
-	<h1>hello world</h1>
-  </div>
-  
-<iframe id="iframe1" src="javascript:;" width="100%" height="100%" frameborder="0" border="0" marginwidth="0"
-    marginheight="0" scrolling="no" allowfullscreen="allowfullscreen" mozallowfullscreen="mozallowfullscreen"
-    msallowfullscreen="msallowfullscreen" oallowfullscreen="oallowfullscreen" allow="fullscreen" fullscreen="true"
-    webkitallowfullscreen="webkitallowfullscreen" style="position: relative;z-index: 9999999;">
-	</iframe>
+	<div>
+	  <iframe id="iframe1" src="javascript:;" width="100%" frameborder="0" border="0" marginwidth="0" marginheight="0"
+		scrolling="no" allowfullscreen="allowfullscreen" mozallowfullscreen="mozallowfullscreen"
+		msallowfullscreen="msallowfullscreen" oallowfullscreen="oallowfullscreen" allow="fullscreen" fullscreen="true"
+		webkitallowfullscreen="webkitallowfullscreen">
+	  </iframe>
+	</div>
+	
+
 
 </body>
 
