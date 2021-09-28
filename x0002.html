@@ -34,7 +34,7 @@
     $(document).ready(function () {
       let width = document.body.clientWidth;
       let height = width / 2.4;
-      $('#iframe1').css('height', height);
+      $('#iframe1').css('height', height + 44 * 3);
 
       let url = getUrlParam('url');
       if (url) {
@@ -45,8 +45,8 @@
     });
 
     function fn2(height2) {
-      let height1 = $('#iframe1').css('height');
-      $('#iframe1').css('height', parseInt(height1) + height2 + 44);
+      //let height1 = $('#iframe1').css('height');
+      //$('#iframe1').css('height', parseInt(height1) + height2 + 44);
     }
   </script>
 </head>
