@@ -10,31 +10,32 @@
   <meta http-equiv="Pragma" content="no-cache">
   <meta http-equiv="Cache-control" content="no-cache">
   <meta http-equiv="Cache" content="no-cache">
- <!-- <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> -->
-	
-  <title>index</title>
+
+  <title>{{}}</title>
 
   <style type="text/css">
-    body{
+    body {
       background-color: #F5F5DC;
-      height: 100%;
+      margin: 0px;
+      padding: 0px;
     }
   </style>
 
-
-  <script src="https://libs.baidu.com/jquery/2.0.3/jquery.min.js"></script>
+  <script src="//libs.baidu.com/jquery/2.0.3/jquery.min.js"></script>
   <script type="text/javascript">
 
     function getUrlParam(name) {
       var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
       var r = window.location.search.substr(1).match(reg);
-      if (r != null) return decodeURI(r[2]); return null;
+      if (r != null) {
+        return decodeURI(r[2]);
+      }
+      return null;
     }
 
     $(document).ready(function () {
-//       let width = document.body.clientWidth;
-//       let height = width / 2.4;
-//       $('#iframe1').css('height', height + 44 * 3);
+
+      $('#iframe1').css('height', document.documentElement.clientHeight - 5);
 
       let url = getUrlParam('url');
       if (url) {
@@ -42,25 +43,28 @@
       } else {
         alert('非礼勿视');
       }
+
+      window.onresize = function () {
+        $('#iframe1').css('height', document.documentElement.clientHeight - 5);
+      };
+
+      window.addEventListener('message', e => {
+        console.log(e.data);
+        document.title = e.data.title + '-' + e.data.index;
+      });
+
     });
 
-    function fn2(height2) {
-      //let height1 = $('#iframe1').css('height');
-      //$('#iframe1').css('height', parseInt(height1) + height2 + 44);
-    }
   </script>
 </head>
 
 <body>
-
-  <iframe id="iframe1" src="javascript:;" width="100%" height="100%" frameborder="0" border="0" marginwidth="0" marginheight="0"
-	scrolling="no" allowfullscreen="allowfullscreen" mozallowfullscreen="mozallowfullscreen"
-	msallowfullscreen="msallowfullscreen" oallowfullscreen="oallowfullscreen"  fullscreen="true"
-	webkitallowfullscreen="webkitallowfullscreen">
-  </iframe>
-
-
-
+  <div>
+    <iframe id="iframe1" src="javascript:;" allowfullscreen="allowfullscreen" mozallowfullscreen="mozallowfullscreen"
+      msallowfullscreen="msallowfullscreen" oallowfullscreen="oallowfullscreen"
+      webkitallowfullscreen="webkitallowfullscreen" frameBorder="no" scrolling="yes" width="100%" title="hello world">
+    </iframe>
+  </div>
 </body>
 
 </html>
