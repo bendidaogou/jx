@@ -52,7 +52,11 @@
 
       window.addEventListener('message', e => {
         console.log(e.data);
-        document.title = e.data.title + '-' + e.data.index;
+        let title = e.data.title;
+        if(e.data.index){
+          title = title + '-' + e.data.index;
+        }
+        document.title = title;
       });
 
     });
