@@ -1,4 +1,4 @@
-xx00xx00xxoo
+//m.pianku.li/ajax/MyJs/
 cnzz.
 .cnzz
 hm.baidu.com
